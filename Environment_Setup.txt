@@ -1,0 +1,39 @@
+--------------------------------------
+-------------INSTALLATION-------------
+--------------------------------------
+
+## install R
+sudo apt update
+sudo apt install r-base-core
+
+## install GSL
+cd
+wget https://ftp.snt.utwente.nl/pub/software/gnu/gsl/gsl-2.5.tar.gz
+tar -zxvf gsl-2.5.tar.gz
+cd gsl-2.5
+mkdir ~/gsl
+./configure --prefix=/root/gsl
+make
+make check
+make install
+
+echo 'export PATH=~/gsl/bin:$PATH' >> ~/.bashrc
+echo 'export LD_LIBRARY_PATH=~/gsl/lib:$LD_LIBRARY_PATH' >> ~/.bashrc
+echo 'export PKG_CFLAGS="-I/root/gsl/include -L/root/gsl/lib -lgsl -lgslcblas -lm"' >> ~/.bashrc
+source ~/.bashrc
+
+
+
+--------------------------------------
+-----------------USAGE----------------
+--------------------------------------
+
+## test R compiler
+R CMD SHLIB eval.c
+Rscript run.R
+
+## test compile with GSL
+gcc gslTest.c -I/root/gsl/include -L/root/gsl/lib -lgsl -lgslcblas -lm -o gslTest
+
+## test R compiler with GSL
+R CMD SHLIB prominence.c
