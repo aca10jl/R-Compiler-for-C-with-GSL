@@ -12,7 +12,7 @@ wget https://ftp.snt.utwente.nl/pub/software/gnu/gsl/gsl-2.5.tar.gz
 tar -zxvf gsl-2.5.tar.gz
 cd gsl-2.5
 mkdir ~/gsl
-./configure --prefix=/root/gsl
+./configure --prefix=$HOME/gsl
 make
 make check
 make install
@@ -36,4 +36,4 @@ Rscript run.R
 gcc gslTest.c -I/root/gsl/include -L/root/gsl/lib -lgsl -lgslcblas -lm -o gslTest
 
 ## test R compiler with GSL
-R CMD SHLIB prominence.c
+R CMD SHLIB [fileName].c
