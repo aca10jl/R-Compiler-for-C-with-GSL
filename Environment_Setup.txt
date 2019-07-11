@@ -19,7 +19,7 @@ make install
 
 echo 'export PATH=~/gsl/bin:$PATH' >> ~/.bashrc
 echo 'export LD_LIBRARY_PATH=~/gsl/lib:$LD_LIBRARY_PATH' >> ~/.bashrc
-echo 'export PKG_CFLAGS="-I/root/gsl/include -L/root/gsl/lib -lgsl -lgslcblas -lm"' >> ~/.bashrc
+echo 'export PKG_CFLAGS="-I$HOME/include -L$HOME/lib -lgsl -lgslcblas -lm"' >> ~/.bashrc
 source ~/.bashrc
 
 
