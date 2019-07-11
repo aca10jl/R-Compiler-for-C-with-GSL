@@ -33,7 +33,7 @@ R CMD SHLIB eval.c
 Rscript run.R
 
 ## test compile with GSL
-gcc gslTest.c -I/root/gsl/include -L/root/gsl/lib -lgsl -lgslcblas -lm -o gslTest
+gcc gslTest.c -I$HOME/include -L$HOME/lib -lgsl -lgslcblas -lm -o gslTest
 
 ## test R compiler with GSL
 R CMD SHLIB [fileName].c
